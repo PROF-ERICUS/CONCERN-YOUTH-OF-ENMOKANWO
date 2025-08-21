@@ -8,8 +8,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <link rel="stylesheet" href="index.css">
 <style>
-/* Basic Header Styling */
+/* General */
 body { margin: 0; font-family: 'Open Sans', sans-serif; }
+
+/* Header */
 header {
   background: #1a237e;
   padding: 10px 20px;
@@ -40,26 +42,24 @@ nav ul li a.active { color: #ffca28; }
 
 .menu-toggle { display: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
 
-/* Responsive */
-@media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 60px; right: 0; width: 200px; padding: 10px; }
-  nav ul.active { display: flex; }
-  .menu-toggle { display: block; }
-}
-
+/* Hero */
 .hero {
-  margin-top:90px;
-  text-align:center;
-  padding:100px 20px;
+  margin-top: 90px;
+  text-align: center;
+  padding: 100px 20px;
   background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1650&q=80') no-repeat center center;
   background-size: cover;
   color: #fff;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
-.btn-executives {
+.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; margin: 15px 0 25px; }
+
+/* Buttons */
+.btn {
   display: inline-block;
   padding: 10px 25px;
-  margin-top: 20px;
+  margin: 5px;
   background: #1a237e;
   color: #fff;
   text-decoration: none;
@@ -67,17 +67,52 @@ nav ul li a.active { color: #ffca28; }
   font-weight: 600;
   transition: background 0.3s;
 }
+.btn:hover { background: #0f1b60; }
 
-.btn-executives:hover {
-  background: #0f1b60;
+/* About Section */
+.about-summary {
+  padding: 50px 20px;
+  text-align: center;
 }
+.about-summary h2 { font-size: 2rem; margin-bottom: 15px; }
+.about-summary p { max-width: 700px; margin: auto; font-size: 1.1rem; line-height: 1.6; }
 
+/* Footer */
+footer {
+  background: #1a237e;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+footer .social-links a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+footer .social-links a:hover { color: #ffca28; }
 
+/* Responsive */
+@media(max-width:768px){
+  nav ul { 
+    display: none; 
+    flex-direction: column; 
+    background: #1a237e; 
+    position: absolute; 
+    top: 60px; right: 0; 
+    width: 200px; padding: 10px; 
+  }
+  nav ul.active { display: flex; }
+  .menu-toggle { display: block; }
+
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- Header / Navbar -->
+<!-- Header -->
 <header>
   <div class="logo"><img src="cyc.png" alt="CYC Logo"></div>
   <nav>
@@ -94,25 +129,22 @@ nav ul li a.active { color: #ffca28; }
 </header>
 
 <!-- Hero Section -->
-<!-- Hero Section -->
 <section class="hero">
   <h1>Welcome to Our Community</h1>
-  <a href="executives.html" class="btn-executives">Meet Our Executives</a>
+  <a href="executives.html" class="btn">Meet Our Executives</a>
+  <a href="membership.html" class="btn">Join Us</a>
   <p>Building stronger connections, fostering growth, and creating a better future together.</p>
-  <a href="membership.html" style="display:inline-block; padding:10px 20px; background:#1a237e; color:#fff; border-radius:5px; text-decoration:none;">Join Us</a>
 </section>
 
 <!-- About Summary -->
-<section class="about-summary" style="padding:50px 20px; text-align:center;">
+<section class="about-summary">
   <h2>About Our Community</h2>
   <p>We are a dedicated community association focused on social development, education, and fostering unity. Join us to make a positive impact and build lasting relationships.</p>
-  <a href="about.html" style="display:inline-block; margin-top:15px; padding:10px 20px; background:#1a237e; color:#fff; border-radius:5px; text-decoration:none;">Learn More</a>
+  <a href="about.html" class="btn">Learn More</a>
 </section>
-  
-
 
 <!-- Footer -->
-<footer style="background:#1a237e; color:#fff; text-align:center; padding:20px;">
+<footer>
   <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
   <div class="social-links">
     <a href="https://www.facebook.com/share/1BxeVjF9F9/"><i class="fab fa-facebook"></i></a>
