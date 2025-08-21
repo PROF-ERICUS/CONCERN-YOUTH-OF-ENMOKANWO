@@ -39,7 +39,7 @@ nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 
 nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; }
 @media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:200px; padding:20px; }
+  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:100%; padding:10px; }
   nav ul.active { display: flex; }
   .menu-toggle { display: block; }
 }
@@ -55,7 +55,7 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   text-align:center;
 }
 
-/* Marquee Slides */
+/* Slideshow */
 .popup-slideshow {
   position: relative;
   overflow: hidden;
@@ -81,9 +81,9 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   align-items:center;
   gap:10px;
   transform: translateX(100%);
-  transition: transform 0.5s linear;
+  transition: transform 0.5s ease-in-out;
 }
-.popup-slide i { margin-right:8px; color:#ffca28; }
+.popup-slide i { color:#ffca28; font-size:1.3rem; }
 
 /* Event Cards */
 .event-cards {
@@ -122,6 +122,7 @@ footer a:hover { color:#fff; }
 /* Small screens adjustments */
 @media (max-width:768px){
   .popup-slide { font-size: 14px; padding: 8px 10px; }
+  .event-card { width: 90%; }
 }
 </style>
 </head>
@@ -167,14 +168,13 @@ function toggleMenu() {
   document.getElementById('nav-links').classList.toggle('active');
 }
 
-// Event data
+// Event data with updated icons
 const events = [
   { icon: "fas fa-rocket", msg: "Official launch of the youth group: Dec 25, 2025 at Enmokanwo. All members are encouraged to participate!" },
   { icon: "fas fa-handshake", msg: "Youth Meeting: Dec 20, 2025 at Enmokanwo. Yearly youth gathering for planning activities." },
   { icon: "fas fa-clipboard-list", msg: "Registration of the Association: Support our projects." },
   { icon: "fas fa-leaf", msg: "Community service activity to promote cleanliness and environmental awareness: Dec 22, 2025 at Enmokanwo. Join us." }
 ];
-
 
 // Build slides
 const slideshowContainer = document.getElementById("popupSlideshow");
@@ -211,7 +211,7 @@ events.forEach(ev=>{
 // Body messages rotation
 const bodyMessages=[
   "Welcome to Concern Youth of Enmokanwo! Stay tuned for news.",
-  "Unity youth for development."
+  "Unity youth for development.",
   "Join our next community cleanup and make a difference!",
   "Check out upcoming events and RSVP online.",
   "Empowering the youth of Enmokanwo together."
@@ -225,4 +225,3 @@ setInterval(()=>{
 </script>
 </body>
 </html>
-
