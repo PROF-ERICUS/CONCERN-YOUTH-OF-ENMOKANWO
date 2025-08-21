@@ -40,7 +40,7 @@
     .hero {
       margin-top: 70px;
       height: 250px;
-      background: url('https://img.freepik.com/free-photo/group-young-people-posing-outdoors_23-2149186303.jpg') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1596496058622-2f1ed80f57c3?auto=format&fit=crop&w=1650&q=80') no-repeat center center/cover;
       position: relative;
       display:flex; align-items:center; justify-content:center;
       text-align:center;
@@ -53,7 +53,7 @@
     }
     .hero h1 {
       position: relative;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       z-index: 1;
     }
     .form-section {
@@ -160,7 +160,7 @@
 <section class="form-section">
   <h2>Membership Form</h2>
   <form>
-    <input type="text" placeholder="Full Name" />
+    <input type="text" placeholder="Full Name" required />
     <input type="email" placeholder="Email Address" required />
     <input type="tel" placeholder="Phone Number" required />
     <select required>
@@ -168,6 +168,7 @@
       <option value="male">Male</option>
       <option value="female">Female</option>
     </select>
+    <input type="text" placeholder="Occupation" required />
     <textarea placeholder="Why do you want to join?" required></textarea>
     <button type="submit"><i class="fas fa-paper-plane"></i> Submit</button>
   </form>
