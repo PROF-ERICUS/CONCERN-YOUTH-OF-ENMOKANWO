@@ -109,34 +109,17 @@ nav ul li a.active { color: #ffca28; }
 }
 .about-summary a:hover { background: #0f1b60; }
 
+
 /* Footer */
 footer {
-  background: #1a237e;
-  color: #fff;
-  text-align: center;
-  height: 60px;               /* same as header height */
-  display: flex;
-  align-items: center;        /* center vertically */
-  justify-content: space-between; /* space text and icons */
-  padding: 0 20px;            /* horizontal padding */
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  background:#1a237e;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  margin-top:auto;
 }
-
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
-
-footer .social-links a {
-  color: #fff;
-  margin-left: 15px;
-  font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-footer .social-links a:hover {
-  color: #ffca28;
-}
+footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
+footer a:hover { color:#fff; }
 
 
 /* Responsive */
@@ -209,6 +192,7 @@ footer .social-links a:hover {
 </footer>
 
 
+
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 function toggleMenu() {
@@ -222,4 +206,5 @@ window.addEventListener("scroll", function () {
 </script>
 </body>
 </html>
+
 
