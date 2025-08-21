@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
+
 body {
   background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
   background-size: cover;
@@ -33,14 +34,29 @@ header {
 }
 header.shrink { padding: 5px 20px; background: #0f1b60; }
 header .logo img { height: 50px; }
+
 nav { margin-left: auto; }
 nav ul { list-style: none; display: flex; gap: 20px; }
 nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
 nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; }
+
+/* Mobile menu fixed side slide */
 @media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:100%; padding:10px; }
-  nav ul.active { display: flex; }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    background: #1a237e;
+    position: fixed;
+    top: 60px;
+    right: -220px;
+    width: 200px;
+    padding: 20px;
+    height: calc(100% - 60px);
+    transition: right 0.3s ease;
+    z-index: 1001;
+  }
+  nav ul.active { right: 0; }
   .menu-toggle { display: block; }
 }
 
@@ -55,7 +71,7 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   text-align:center;
 }
 
-/* Slideshow */
+/* Marquee Slides */
 .popup-slideshow {
   position: relative;
   overflow: hidden;
@@ -81,9 +97,9 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   align-items:center;
   gap:10px;
   transform: translateX(100%);
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s linear;
 }
-.popup-slide i { color:#ffca28; font-size:1.3rem; }
+.popup-slide i { margin-right:8px; color:#ffca28; }
 
 /* Event Cards */
 .event-cards {
@@ -122,7 +138,6 @@ footer a:hover { color:#fff; }
 /* Small screens adjustments */
 @media (max-width:768px){
   .popup-slide { font-size: 14px; padding: 8px 10px; }
-  .event-card { width: 90%; }
 }
 </style>
 </head>
