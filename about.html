@@ -1,251 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CYC | About</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    /* Reset & Base */
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans', sans-serif; }
-    body { background: #f9fafb; color: #333; line-height:1.6; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYC | About</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
+body {
+  background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #fff;
+}
 
-    /* Header */
-    header {
-      background: #1a237e;
-      padding: 10px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      position:fixed;
-      width:100%;
-      top:0;
-      z-index:1000;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);
-    }
-    header.shrink { padding:5px 20px; background:#0f1b60; }
-    header .logo img { height:50px; }
+/* Header */
+header {
+  background: #1a237e;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+header.shrink { padding: 5px 20px; background: #0f1b60; }
+header .logo img { height: 50px; }
 
-    /* Navigation */
-    nav ul { list-style:none; display:flex; gap:20px; }
-    nav ul li a {
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-    }
-    nav ul li a:hover, nav ul li a.active { color:#ffca28; }
-    .menu-toggle { display:none; color:#fff; font-size:1.5rem; cursor:pointer; }
+nav { margin-left: auto; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
+nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 
-    @media(max-width:768px){
-      nav ul {
-        display:none;
-        flex-direction:column;
-        background:#1a237e;
-        position:absolute;
-        top:60px;
-        right:0;
-        width:220px;
-        padding:15px;
-        border-radius:0 0 8px 8px;
-      }
-      nav ul.active { display:flex; }
-      .menu-toggle { display:block; }
-    }
+.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; }
+@media(max-width:768px){
+  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:200px; padding:20px; }
+  nav ul.active { display: flex; }
+  .menu-toggle { display: block; }
+}
 
-    /* Hero Banner */
-    .hero {
-      margin-top:70px;
-      height:300px;
-      background: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1') no-repeat center center/cover;
-      position: relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
-    .hero::before {
-      content: "";
-      position:absolute;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.5);
-    }
-    .hero h1 {
-      position:relative;
-      color:#fff;
-      font-size:2.5rem;
-      z-index:1;
-    }
+/* About Section */
+.about {
+  margin-top: 100px;
+  padding: 40px 20px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+.about h1 { font-size: 2.2rem; margin-bottom: 15px; text-align:center; color:#ffca28; }
+.about p { font-size: 1.1rem; line-height:1.6; margin-bottom: 15px; text-align:justify; }
 
-    /* About Section */
-    .about-section {
-      padding:80px 20px;
-      background:#e8eaf6;
-      text-align:center;
-    }
-    .about-section h2 {
-      font-size:2.2rem;
-      margin-bottom:20px;
-      color:#1a237e;
-    }
-    .about-section p {
-      max-width:800px;
-      margin:0 auto 40px;
-      font-size:1.1rem;
-    }
+/* Footer */
+footer {
+  background:#1a237e;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  margin-top:auto;
+}
+footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
+footer a:hover { color:#fff; }
 
-    .about-grid {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:25px;
-    }
-    .about-card {
-      background:#fff;
-      padding:25px;
-      border-left:6px solid #004080;
-      border-radius:10px;
-      box-shadow:0 4px 8px rgba(0,0,0,0.1);
-      flex:1 1 300px;
-      text-align:center;
-      transition:transform 0.3s, box-shadow 0.3s;
-    }
-    .about-card:hover {
-      transform:translateY(-5px);
-      box-shadow:0 6px 12px rgba(0,0,0,0.2);
-    }
-    .about-card i {
-      font-size:40px;
-      color:#004080;
-      margin-bottom:15px;
-    }
-    .about-card h3 {
-      margin-bottom:10px;
-      color:#1a237e;
-    }
-
-    /* Footer */
-    footer {
-      background:#1a237e;
-      color:#fff;
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-    }
-    footer a {
-      color:#ffca28;
-      margin:0 10px;
-      font-size:1.2rem;
-      transition:0.3s;
-    }
-    footer a:hover { color:#fff; }
-
-    /* Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background:#1a237e;
-      color:#fff;
-      font-size:22px;
-      padding:12px 16px;
-      border-radius:50%;
-      cursor:pointer;
-      display:none;
-      box-shadow:0 4px 8px rgba(0,0,0,0.2);
-      transition:0.3s;
-      z-index:1000;
-    }
-    #backToTop:hover {
-      background:#0f1b60;
-      transform:scale(1.1);
-    }
-
-    @media(max-width:600px){
-      .hero h1 { font-size:1.8rem; }
-      .about-section h2 { font-size:1.8rem; }
-      .about-section p { font-size:1rem; }
-      .about-card { padding:20px; }
-    }
-  </style>
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ffca28;
+  color: #1a237e;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+#backToTop:hover {
+  background: #fff;
+  color: #0f1b60;
+}
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="logo"><img src="cyc.png" alt="CYC Logo"></div>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="membership.html">Membership</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-    </nav>
-  </header>
+<header>
+  <div class="logo"><img src="cyc.png" alt="CYC Logo"></div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  </nav>
+</header>
 
-  <!-- Hero Banner -->
-  <section class="hero">
-    <h1>About Us</h1>
-  </section>
+<!-- About Section -->
+<section class="about">
+  <h1>About Us</h1>
+  <p>
+    Concern Youth of Enmokanwo (CYC) is a community-driven youth organization dedicated to empowering young individuals through leadership, education, and service. Our vision is to unite the youth towards building a better society where opportunities and growth are shared.
+  </p>
+  <p>
+    Since our establishment, we have engaged in numerous community development projects, outreach programs, and youth empowerment initiatives. We believe that through unity and service, we can bring positive change to our people and beyond.
+  </p>
+  <p>
+    Join us in our mission to inspire, develop, and transform lives through meaningful programs and activities tailored for the youth.
+  </p>
+</section>
 
-  <!-- About Content -->
-  <section class="about-section">
-    <h2>Who We Are</h2>
-    <p>The <strong>Concern Youth of Enmokanwo (CYC)</strong> is a community-driven youth organization committed to leadership, empowerment, and progress...</p>
-    <div class="about-grid">
-      <div class="about-card">
-        <i class="fas fa-users"></i>
-        <h3>Our Mission</h3>
-        <p>Empowering youth to shape the future through leadership and collaboration.</p>
-      </div>
-      <div class="about-card">
-        <i class="fas fa-handshake"></i>
-        <h3>Our Vision</h3>
-        <p>Building a united and resourceful community where every youth thrives.</p>
-      </div>
-      <div class="about-card">
-        <i class="fas fa-bullhorn"></i>
-        <h3>Our Voice</h3>
-        <p>We speak and act for the progress of our community and future generations.</p>
-      </div>
-    </div>
-  </section>
+<footer>
+  <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/share/1BxeVjF9F9/"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer>
+<!-- Back to Top Button -->
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-  <!-- Back to Top -->
-  <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('active');
+}
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+// Back to Top Logic
+const backToTop = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTop.style.display = "flex";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
 
-    function toggleMenu() {
-      document.getElementById('nav-links').classList.toggle('active');
-    }
-
-    window.addEventListener("scroll", function(){
-      const header = document.querySelector("header");
-      const backToTop = document.getElementById("backToTop");
-      header.classList.toggle("shrink", window.scrollY > 50);
-      backToTop.style.display = window.scrollY > 200 ? "block" : "none";
-    });
-
-    document.getElementById("backToTop").addEventListener("click", function(){
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  </script>
 </body>
 </html>
