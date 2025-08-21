@@ -9,7 +9,7 @@
 <style>
 /* Reset & Base */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-body { background: #f9fafb; color: #333; line-height: 1.6; }
+body { background: #f9fafb; color: #333; line-height: 1.6; display:flex; flex-direction:column; min-height:100vh; }
 
 /* Header */
 header {
@@ -23,6 +23,7 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  height:70px;
 }
 header.shrink { padding: 5px 20px; background: #0f1b60; }
 header .logo img { height: 50px; }
@@ -35,7 +36,7 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 
 /* Responsive */
 @media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 60px; right: 0; width: 200px; padding: 10px; }
+  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 70px; right: 0; width: 200px; padding: 10px; }
   nav ul.active { display: flex; }
   .menu-toggle { display: block; }
 }
@@ -67,62 +68,37 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   max-width: 800px;
   margin: auto;
   text-align:center;
+  flex:1;
 }
 .membership h2 { margin-bottom: 20px; }
 .membership p { margin-bottom: 30px; font-size: 16px; }
 .membership-form { display: flex; flex-direction: column; gap:15px; }
 .membership-form input, .membership-form select { padding: 12px; border-radius: 5px; border:1px solid #ccc; font-size:16px; }
 .membership-form button { padding: 12px; border-radius: 5px; border:none; background:#1a237e; color:#fff; font-size:16px; cursor:pointer; transition: 0.3s; }
-.membership-form button i { margin-right: 8px; }
+.membership-form button i { margin-right:8px; }
 .membership-form button:hover { background:#0f1b60; }
 
 /* Footer */
 footer {
   background: #1a237e;
   color: #fff;
-  padding: 40px 20px;
-  margin-top: 60px;
+  height: 70px;               /* same as header height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
 }
 .footer-container {
-  max-width: 1100px;
-  margin: auto;
-  text-align: center;
-}
-footer p {
-  margin-bottom: 20px;
-  font-size: 15px;
-}
-footer .social-links {
   display: flex;
-  justify-content: center;
-  gap: 25px;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1100px;
 }
-footer .social-links a {
-  color: #ffca28;
-  font-size: 22px;
-  transition: 0.3s ease;
-}
-footer .social-links a:hover {
-  color: #fff;
-}
-
-/* Back to Top */
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #1a237e;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  padding: 12px 15px;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background 0.3s ease;
-}
-#backToTop:hover { background: #0f1b60; }
+footer p { font-size: 15px; margin: 0; }
+footer .social-links { display: flex; gap: 20px; }
+footer .social-links a { color: #ffca28; font-size: 20px; transition: 0.3s ease; }
+footer .social-links a:hover { color: #fff; }
 </style>
 </head>
 <body>
@@ -145,10 +121,8 @@ footer .social-links a:hover {
 
 <!-- Hero Section -->
 <section class="hero">
-  <div class="hero-overlay">
-    <h1>Join Our Community</h1>
-    <p>Become a member to participate in events, networking, and community development.</p>
-  </div>
+  <h1>Join Our Community</h1>
+  <p>Become a member to participate in events, networking, and community development.</p>
 </section>
 
 <!-- Membership Section -->
@@ -172,7 +146,7 @@ footer .social-links a:hover {
 <!-- Footer -->
 <footer>
   <div class="footer-container">
-    <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo</p>
     <div class="social-links">
       <a href="https://www.facebook.com/share/1BxeVjF9F9/" target="_blank"><i class="fab fa-facebook"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
@@ -181,9 +155,6 @@ footer .social-links a:hover {
     </div>
   </div>
 </footer>
-
-<!-- Back to Top Button -->
-<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -195,17 +166,8 @@ function toggleMenu() {
 
 window.addEventListener("scroll", function () {
   const header = document.querySelector("header");
-  const backToTop = document.getElementById("backToTop");
-
   if (window.scrollY > 50) { header.classList.add("shrink"); }
   else { header.classList.remove("shrink"); }
-
-  if (window.scrollY > 200) { backToTop.style.display = "block"; }
-  else { backToTop.style.display = "none"; }
-});
-
-document.getElementById("backToTop").addEventListener("click", function () {
-  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 </script>
 
