@@ -9,12 +9,12 @@
 <style>
 /* Reset & Base */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-body { background: #f9fafb; color: #333; line-height: 1.6; display:flex; flex-direction:column; min-height:100vh; }
+body { background: #f9fafb; color: #333; line-height: 1.6; }
 
 /* Header */
 header {
   background: #1a237e;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,9 +23,8 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  height:70px;
 }
-header.shrink { padding: 5px 20px; background: #0f1b60; }
+header.shrink { padding: 8px 20px; background: #0f1b60; }
 header .logo img { height: 50px; }
 
 /* Navigation */
@@ -36,7 +35,7 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 
 /* Responsive */
 @media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 70px; right: 0; width: 200px; padding: 10px; }
+  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 60px; right: 0; width: 200px; padding: 10px; }
   nav ul.active { display: flex; }
   .menu-toggle { display: block; }
 }
@@ -53,14 +52,14 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5); 
   padding: 60px 20px;
   border-radius: 10px;
   display: inline-block;
 }
 
-.hero-overlay h1 { font-size: 2.5rem; margin-bottom: 20px; }
-.hero-overlay p { font-size: 1.2rem; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; }
 
 /* Membership Section */
 .membership {
@@ -68,37 +67,33 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   max-width: 800px;
   margin: auto;
   text-align:center;
-  flex:1;
 }
 .membership h2 { margin-bottom: 20px; }
 .membership p { margin-bottom: 30px; font-size: 16px; }
 .membership-form { display: flex; flex-direction: column; gap:15px; }
-.membership-form input, .membership-form select { padding: 12px; border-radius: 5px; border:1px solid #ccc; font-size:16px; }
-.membership-form button { padding: 12px; border-radius: 5px; border:none; background:#1a237e; color:#fff; font-size:16px; cursor:pointer; transition: 0.3s; }
-.membership-form button i { margin-right:8px; }
+.membership-form input, .membership-form select, .membership-form textarea { 
+  padding: 12px; border-radius: 5px; border:1px solid #ccc; font-size:16px; 
+}
+.membership-form textarea { min-height: 100px; resize: vertical; }
+.membership-form button { 
+  padding: 12px; border-radius: 5px; border:none; 
+  background:#1a237e; color:#fff; font-size:16px; 
+  cursor:pointer; transition: 0.3s; display:flex; 
+  align-items:center; justify-content:center; gap:8px;
+}
 .membership-form button:hover { background:#0f1b60; }
 
 /* Footer */
 footer {
-  background: #1a237e;
-  color: #fff;
-  height: 70px;               /* same as header height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
+  background:#1a237e;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+  margin-top:40px;
 }
-.footer-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1100px;
-}
-footer p { font-size: 15px; margin: 0; }
-footer .social-links { display: flex; gap: 20px; }
-footer .social-links a { color: #ffca28; font-size: 20px; transition: 0.3s ease; }
-footer .social-links a:hover { color: #fff; }
+footer .social-links { margin: 15px 0; }
+footer a { color:#ffca28; margin:0 10px; font-size:1.2rem; }
+footer a:hover { color:#fff; }
 </style>
 </head>
 <body>
@@ -139,20 +134,18 @@ footer .social-links a:hover { color: #fff; }
       <option value="regular">Regular</option>
       <option value="premium">Premium</option>
     </select>
-    <button type="submit"><i class="fas fa-paper-plane"></i> Register</button>
+    <textarea placeholder="Why do you want to join?" required></textarea>
+    <button type="submit"><i class="fas fa-user-plus"></i> Register</button>
   </form>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="footer-container">
-    <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo</p>
-    <div class="social-links">
-      <a href="https://www.facebook.com/share/1BxeVjF9F9/" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
+  <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/share/1BxeVjF9F9/"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
   </div>
 </footer>
 
