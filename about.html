@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYC | About</title>
+<title>CYC | About Us</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
@@ -29,37 +29,45 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
 }
-header.shrink { padding: 5px 20px; background: #0f1b60; }
 header .logo img { height: 50px; }
-
 nav { margin-left: auto; }
 nav ul { list-style: none; display: flex; gap: 20px; }
-nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
-nav ul li a:hover, nav ul li a.active { color: #ffca28; }
-
-.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; }
+nav ul li a { color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
+nav ul li a:hover, nav ul li a.active { color:#ffca28; }
+.menu-toggle { display:none; font-size:1.5rem; cursor:pointer; color:#fff; }
 @media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:200px; padding:20px; }
-  nav ul.active { display: flex; }
-  .menu-toggle { display: block; }
+  nav ul { display:none; flex-direction:column; background:#1a237e; position:absolute; top:60px; right:0; width:200px; padding:20px; }
+  nav ul.active { display:flex; }
+  .menu-toggle { display:block; }
 }
 
 /* About Section */
-.about {
-  margin-top: 100px;
-  padding: 40px 20px;
-  background: rgba(0,0,0,0.6);
-  border-radius: 12px;
-  width: 90%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+.about-section {
+  margin-top:100px;
+  padding:60px 20px;
+  background:rgba(0,0,0,0.6);
+  border-radius:12px;
+  width:90%;
+  max-width:1000px;
+  margin-left:auto;
+  margin-right:auto;
   box-shadow:0 4px 12px rgba(0,0,0,0.4);
 }
-.about h1 { font-size: 2.2rem; margin-bottom: 15px; text-align:center; color:#ffca28; }
-.about p { font-size: 1.1rem; line-height:1.6; margin-bottom: 15px; text-align:justify; }
+.about-section h2 {
+  font-size:2rem;
+  color:#ffca28;
+  margin-bottom:15px;
+  border-bottom:2px solid #ffca28;
+  display:inline-block;
+}
+.about-section p {
+  font-size:1.1rem;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+.about-section ul { margin-left:20px; margin-bottom:20px; }
+.about-section ul li { margin-bottom:15px; line-height:1.6; }
 
 /* Footer */
 footer {
@@ -72,7 +80,7 @@ footer {
 footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
 footer a:hover { color:#fff; }
 
-/* Back to Top Button */
+/* Back to Top */
 #backToTop {
   position: fixed;
   bottom: 30px;
@@ -80,20 +88,17 @@ footer a:hover { color:#fff; }
   background: #ffca28;
   color: #1a237e;
   border: none;
+  padding: 12px 15px;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5rem;
+  font-size: 20px;
   cursor: pointer;
   display: none;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
 }
 #backToTop:hover {
-  background: #fff;
-  color: #0f1b60;
+  background:#1a237e;
+  color:#fff;
 }
 </style>
 </head>
@@ -114,18 +119,30 @@ footer a:hover { color:#fff; }
   </nav>
 </header>
 
-<!-- About Section -->
-<section class="about">
-  <h1>About Us</h1>
-  <p>
-    Concern Youth of Enmokanwo (CYC) is a community-driven youth organization dedicated to empowering young individuals through leadership, education, and service. Our vision is to unite the youth towards building a better society where opportunities and growth are shared.
-  </p>
-  <p>
-    Since our establishment, we have engaged in numerous community development projects, outreach programs, and youth empowerment initiatives. We believe that through unity and service, we can bring positive change to our people and beyond.
-  </p>
-  <p>
-    Join us in our mission to inspire, develop, and transform lives through meaningful programs and activities tailored for the youth.
-  </p>
+<section class="about-section">
+  <h2>About Us</h2>
+  <p>Concern Youth of Enmokanwo (CYC) is a youth-driven organization committed to unity, empowerment, and community development. We are passionate about creating opportunities that uplift the youth and strengthen our society.</p>
+
+  <h2>Vision</h2>
+  <p>To build a united community where every youth is empowered to contribute meaningfully to sustainable development.</p>
+
+  <h2>Motto</h2>
+  <p><em>"Unity, Service, and Progress."</em></p>
+
+  <h2>Core Values</h2>
+  <ul>
+    <li><strong>Integrity:</strong> We uphold honesty, transparency, and accountability in all our actions.</li>
+    <li><strong>Unity:</strong> We believe in the power of togetherness and collective responsibility for growth.</li>
+    <li><strong>Service:</strong> We are dedicated to serving our community with humility and selflessness.</li>
+    <li><strong>Leadership:</strong> We inspire and nurture responsible leaders who can drive positive change.</li>
+    <li><strong>Excellence:</strong> We strive for the highest standards in everything we do.</li>
+  </ul>
+
+  <h2>Empowerment</h2>
+  <p>We provide platforms for capacity building, skill development, and leadership training to enable youth to take charge of their future and make a positive impact.</p>
+
+  <h2>Mission</h2>
+  <p>To nurture a generation of responsible, skilled, and united youth through education, training, and community service initiatives.</p>
 </section>
 
 <footer>
@@ -142,15 +159,16 @@ footer a:hover { color:#fff; }
 
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
+
 function toggleMenu() {
   document.getElementById('nav-links').classList.toggle('active');
 }
 
-// Back to Top Logic
+// Back to Top
 const backToTop = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
-    backToTop.style.display = "flex";
+    backToTop.style.display = "block";
   } else {
     backToTop.style.display = "none";
   }
