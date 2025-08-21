@@ -54,7 +54,6 @@ main { margin-top:100px; padding:20px; flex:1; }
 .contact-section form { display:flex; flex-direction:column; gap:15px; }
 .contact-section input,
 .contact-section textarea,
-.contact-section select,
 .contact-section button {
   padding:12px;
   border:none;
@@ -63,8 +62,7 @@ main { margin-top:100px; padding:20px; flex:1; }
   outline:none;
 }
 .contact-section input,
-.contact-section textarea,
-.contact-section select { width:100%; }
+.contact-section textarea { width:100%; }
 .contact-section button {
   background:#ffca28;
   color:#1a237e;
@@ -129,11 +127,6 @@ footer a:hover { color:#fff; }
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
       <input type="tel" placeholder="Phone Number" required>
-      <select required>
-        <option value="">Select Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
       <textarea placeholder="Your Message" rows="5" required></textarea>
       <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
     </form>
