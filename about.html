@@ -1,106 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYC | About Us</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
-body {
-  background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  color: #fff;
-}
-
-/* Header */
-header {
-  background: #1a237e;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-header .logo img { height: 50px; }
-nav { margin-left: auto; }
-nav ul { list-style: none; display: flex; gap: 20px; }
-nav ul li a { color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
-nav ul li a:hover, nav ul li a.active { color:#ffca28; }
-.menu-toggle { display:none; font-size:1.5rem; cursor:pointer; color:#fff; }
-@media(max-width:768px){
-  nav ul { display:none; flex-direction:column; background:#1a237e; position:absolute; top:60px; right:0; width:200px; padding:20px; }
-  nav ul.active { display:flex; }
-  .menu-toggle { display:block; }
-}
-
-/* About Section */
-.about-section {
-  margin-top:100px;
-  padding:60px 20px;
-  background:rgba(0,0,0,0.6);
-  border-radius:12px;
-  width:90%;
-  max-width:1000px;
-  margin-left:auto;
-  margin-right:auto;
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
-}
-.about-section h2 {
-  font-size:2rem;
-  color:#ffca28;
-  margin-bottom:15px;
-  border-bottom:2px solid #ffca28;
-  display:inline-block;
-}
-.about-section p {
-  font-size:1.1rem;
-  margin-bottom:20px;
-  line-height:1.6;
-}
-.about-section ul { margin-left:20px; margin-bottom:20px; }
-.about-section ul li { margin-bottom:15px; line-height:1.6; }
-
-/* Footer */
-footer {
-  background:#1a237e;
-  color:#fff;
-  text-align:center;
-  padding:20px;
-  margin-top:auto;
-}
-footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
-footer a:hover { color:#fff; }
-
-/* Back to Top */
-#backToTop {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #ffca28;
-  color: #1a237e;
-  border: none;
-  padding: 12px 15px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  display: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-}
-#backToTop:hover {
-  background:#1a237e;
-  color:#fff;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CYC | About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
+    body {
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #333;
+    }
+    header {
+      background: #1a237e;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0; z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header .logo img { height: 50px; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
+    nav ul li a:hover, nav ul li a.active { color:#ffca28; }
+    .menu-toggle { display:none; font-size:1.5rem; cursor:pointer; color:#fff; }
+    @media(max-width:768px){
+      nav ul { display:none; flex-direction:column; background:#1a237e; position:absolute; top:60px; right:0; width:200px; padding:20px; }
+      nav ul.active { display:flex; }
+      .menu-toggle { display:block; }
+    }
+    /* Hero Banner */
+    .hero {
+      margin-top: 70px;
+      height: 300px;
+      background: url('https://youth-empower.org/assets/uploads/youth-empowerment.jpg') no-repeat center center/cover;
+      position: relative;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center;
+      color: #fff;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero h1 {
+      position: relative;
+      font-size: 2.5rem;
+      z-index: 1;
+    }
+    .about-section {
+      padding: 60px 20px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      box-shadow:0 4px 12px rgba(0,0,0,0.4);
+      color: #fff;
+    }
+    .about-section h2 {
+      font-size: 2rem;
+      color: #ffca28;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ffca28;
+      display: inline-block;
+    }
+    .about-section p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .about-section ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      list-style-type: disc;
+    }
+    .about-section ul li {
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #1a237e;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+    footer a {
+      color: #ffca28;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    footer a:hover { color: #fff; }
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      background: #ffca28;
+      color: #1a237e;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    #backToTop:hover {
+      background: #fff;
+      color: #0f1b60;
+    }
+  </style>
 </head>
 <body>
 
@@ -119,64 +139,54 @@ footer a:hover { color:#fff; }
   </nav>
 </header>
 
+<section class="hero">
+  <h1>About Us</h1>
+</section>
+
 <section class="about-section">
   <h2>About Us</h2>
-  <p>Concern Youth of Enmokanwo (CYC) is a youth-driven organization committed to unity, empowerment, and community development. We are passionate about creating opportunities that uplift the youth and strengthen our society.</p>
-
+  <p>Concern Youth of Enmokanwo (CYC) is a youth-driven organization committed to unity, empowerment, and community development. We create opportunities that uplift youth and strengthen our society.</p>
   <h2>Vision</h2>
   <p>To build a united community where every youth is empowered to contribute meaningfully to sustainable development.</p>
-
   <h2>Motto</h2>
   <p><em>"Unity, Service, and Progress."</em></p>
-
   <h2>Core Values</h2>
   <ul>
-    <li><strong>Integrity:</strong> We uphold honesty, transparency, and accountability in all our actions.</li>
-    <li><strong>Unity:</strong> We believe in the power of togetherness and collective responsibility for growth.</li>
-    <li><strong>Service:</strong> We are dedicated to serving our community with humility and selflessness.</li>
-    <li><strong>Leadership:</strong> We inspire and nurture responsible leaders who can drive positive change.</li>
-    <li><strong>Excellence:</strong> We strive for the highest standards in everything we do.</li>
+    <li><strong>Integrity:</strong> Honesty, transparency, accountability.</li>
+    <li><strong>Unity:</strong> Togetherness drives growth.</li>
+    <li><strong>Service:</strong> Humility in serving the community.</li>
+    <li><strong>Leadership:</strong> Empowering youth to lead change.</li>
+    <li><strong>Excellence:</strong> Striving for the highest standards.</li>
   </ul>
-
   <h2>Empowerment</h2>
-  <p>We provide platforms for capacity building, skill development, and leadership training to enable youth to take charge of their future and make a positive impact.</p>
-
+  <p>We offer capacity building, skill development, and leadership training enabling youth to take charge of their future.</p>
   <h2>Mission</h2>
-  <p>To nurture a generation of responsible, skilled, and united youth through education, training, and community service initiatives.</p>
+  <p>To nurture a generation of responsible, skilled, and united youth through education, training, and community service.</p>
 </section>
 
 <footer>
   <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
   <div class="social-links">
-    <a href="https://www.facebook.com/share/1BxeVjF9F9/"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
   </div>
 </footer>
 
-<!-- Back to Top Button -->
 <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-function toggleMenu() {
-  document.getElementById('nav-links').classList.toggle('active');
-}
-
-// Back to Top
-const backToTop = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = "block";
-  } else {
-    backToTop.style.display = "none";
+  document.getElementById("year").textContent = new Date().getFullYear();
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('active');
   }
-});
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 </script>
-
 </body>
 </html>
