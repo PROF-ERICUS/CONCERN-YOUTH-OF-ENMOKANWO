@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
-
 body {
   background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
   background-size: cover;
@@ -34,29 +33,14 @@ header {
 }
 header.shrink { padding: 5px 20px; background: #0f1b60; }
 header .logo img { height: 50px; }
-
 nav { margin-left: auto; }
 nav ul { list-style: none; display: flex; gap: 20px; }
 nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
 nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; }
-
-/* Mobile menu fixed side slide */
 @media(max-width:768px){
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    background: #1a237e;
-    position: fixed;
-    top: 60px;
-    right: -220px;
-    width: 200px;
-    padding: 20px;
-    height: calc(100% - 60px);
-    transition: right 0.3s ease;
-    z-index: 1001;
-  }
-  nav ul.active { right: 0; }
+  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:200px; padding:20px; }
+  nav ul.active { display: flex; }
   .menu-toggle { display: block; }
 }
 
@@ -87,7 +71,6 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   padding:0 10px;
   box-shadow:0 4px 8px rgba(0,0,0,0.2);
 }
-
 .popup-slide {
   flex: 0 0 100%;
   white-space: normal;
@@ -183,12 +166,12 @@ function toggleMenu() {
   document.getElementById('nav-links').classList.toggle('active');
 }
 
-// Event data with updated icons
+// Updated Event data
 const events = [
-  { icon: "fas fa-rocket", msg: "Official launch of the youth group: Dec 25, 2025 at Enmokanwo. All members are encouraged to participate!" },
-  { icon: "fas fa-handshake", msg: "Youth Meeting: Dec 20, 2025 at Enmokanwo. Yearly youth gathering for planning activities." },
-  { icon: "fas fa-clipboard-list", msg: "Registration of the Association: Support our projects." },
-  { icon: "fas fa-leaf", msg: "Community service activity to promote cleanliness and environmental awareness: Dec 22, 2025 at Enmokanwo. Join us." }
+  { icon:"fas fa-rocket", msg:"Official launch of the youth group: Dec 25, 2025 at Enmokanwo. All members are encouraged to participate!" },
+  { icon:"fas fa-handshake", msg:"Youth Meeting: Dec 20, 2025 at Enmokanwo. Yearly youth gathering for planning activities." },
+  { icon:"fas fa-clipboard-list", msg:"Registration of the Association: Support our projects." },
+  { icon:"fas fa-leaf", msg:"Community service activity to promote cleanliness and environmental awareness: Dec 22, 2025 at Enmokanwo. Join us." }
 ];
 
 // Build slides
@@ -200,7 +183,7 @@ events.forEach(ev=>{
   slideshowContainer.appendChild(slide);
 });
 
-// Responsive sliding
+// Sliding animation
 let slides = document.querySelectorAll(".popup-slide");
 let current = 0;
 function showSlide(index){
