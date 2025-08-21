@@ -1,104 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYC | Membership</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<style>
-/* Reset & Base */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-body { background: #f9fafb; color: #333; line-height: 1.6; }
-
-/* Header */
-header {
-  background: #1a237e;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-header.shrink { padding: 8px 20px; background: #0f1b60; }
-header .logo img { height: 50px; }
-
-/* Navigation */
-nav ul { list-style: none; display: flex; gap: 20px; }
-nav ul li a { color: #fff; text-decoration: none; font-weight: 600; }
-nav ul li a:hover, nav ul li a.active { color: #ffca28; }
-.menu-toggle { display: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
-
-/* Responsive */
-@media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 60px; right: 0; width: 200px; padding: 10px; }
-  nav ul.active { display: flex; }
-  .menu-toggle { display: block; }
-}
-
-/* Hero Section */
-.hero {
-  margin-top:90px;
-  text-align:center;
-  padding:100px 20px;
-  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1650&q=80') no-repeat center center;
-  background-size: cover;
-  position: relative;
-  color: #fff;
-}
-
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5); 
-  padding: 60px 20px;
-  border-radius: 10px;
-  display: inline-block;
-}
-
-.hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
-.hero p { font-size: 1.2rem; }
-
-/* Membership Section */
-.membership {
-  padding:80px 20px;
-  max-width: 800px;
-  margin: auto;
-  text-align:center;
-}
-.membership h2 { margin-bottom: 20px; }
-.membership p { margin-bottom: 30px; font-size: 16px; }
-.membership-form { display: flex; flex-direction: column; gap:15px; }
-.membership-form input, .membership-form select, .membership-form textarea { 
-  padding: 12px; border-radius: 5px; border:1px solid #ccc; font-size:16px; 
-}
-.membership-form textarea { min-height: 100px; resize: vertical; }
-.membership-form button { 
-  padding: 12px; border-radius: 5px; border:none; 
-  background:#1a237e; color:#fff; font-size:16px; 
-  cursor:pointer; transition: 0.3s; display:flex; 
-  align-items:center; justify-content:center; gap:8px;
-}
-.membership-form button:hover { background:#0f1b60; }
-
-/* Footer */
-footer {
-  background:#1a237e;
-  color:#fff;
-  text-align:center;
-  padding:40px 20px;
-  margin-top:40px;
-}
-footer .social-links { margin: 15px 0; }
-footer a { color:#ffca28; margin:0 10px; font-size:1.2rem; }
-footer a:hover { color:#fff; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CYC | Membership</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
+    body {
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #333;
+    }
+    header {
+      background: #1a237e;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0; z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header .logo img { height: 50px; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
+    nav ul li a:hover, nav ul li a.active { color:#ffca28; }
+    .menu-toggle { display:none; font-size:1.5rem; cursor:pointer; color:#fff; }
+    @media(max-width:768px){
+      nav ul { display:none; flex-direction:column; background:#1a237e; position:absolute; top:60px; right:0; width:200px; padding:20px; }
+      nav ul.active { display:flex; }
+      .menu-toggle { display:block; }
+    }
+    /* Hero Banner */
+    .hero {
+      margin-top: 70px;
+      height: 250px;
+      background: url('https://img.freepik.com/free-photo/group-young-people-posing-outdoors_23-2149186303.jpg') no-repeat center center/cover;
+      position: relative;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center;
+      color: #fff;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero h1 {
+      position: relative;
+      font-size: 2.2rem;
+      z-index: 1;
+    }
+    .form-section {
+      padding: 60px 20px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      margin: 40px auto;
+      box-shadow:0 4px 12px rgba(0,0,0,0.4);
+      color: #fff;
+    }
+    .form-section h2 {
+      font-size: 2rem;
+      color: #ffca28;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    input, textarea, select {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+    }
+    textarea { resize: none; height: 120px; }
+    button {
+      background: #ffca28;
+      color: #1a237e;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #fff;
+      color: #0f1b60;
+    }
+    footer {
+      background: #1a237e;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+    footer a {
+      color: #ffca28;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    footer a:hover { color: #fff; }
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      background: #ffca28;
+      color: #1a237e;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    #backToTop:hover {
+      background: #fff;
+      color: #0f1b60;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
   <div class="logo"><img src="cyc.png" alt="CYC Logo"></div>
   <nav>
@@ -114,32 +153,26 @@ footer a:hover { color:#fff; }
   </nav>
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
-  <h1>Join Our Community</h1>
-  <p>Become a member to participate in events, networking, and community development.</p>
+  <h1>Join Our Membership</h1>
 </section>
 
-<!-- Membership Section -->
-<section class="membership">
-  <h2>Become a Member</h2>
-  <p>Sign up to enjoy networking, events, and access to exclusive resources.</p>
-
-  <form class="membership-form">
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <input type="tel" placeholder="Phone Number" required>
+<section class="form-section">
+  <h2>Membership Form</h2>
+  <form>
+    <input type="text" placeholder="Full Name" />
+    <input type="email" placeholder="Email Address" required />
+    <input type="tel" placeholder="Phone Number" required />
     <select required>
-      <option value="">Select Membership Type</option>
-      <option value="regular">Regular</option>
-      <option value="premium">Premium</option>
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
     </select>
     <textarea placeholder="Why do you want to join?" required></textarea>
-    <button type="submit"><i class="fas fa-user-plus"></i> Register</button>
+    <button type="submit"><i class="fas fa-paper-plane"></i> Submit</button>
   </form>
 </section>
 
-<!-- Footer -->
 <footer>
   <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
   <div class="social-links">
@@ -149,19 +182,20 @@ footer a:hover { color:#fff; }
   </div>
 </footer>
 
+<button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-function toggleMenu() {
-  const nav = document.getElementById('nav-links');
-  nav.classList.toggle('active');
-}
-
-window.addEventListener("scroll", function () {
-  const header = document.querySelector("header");
-  if (window.scrollY > 50) { header.classList.add("shrink"); }
-  else { header.classList.remove("shrink"); }
-});
+  document.getElementById("year").textContent = new Date().getFullYear();
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('active');
+  }
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 </script>
 
 </body>
