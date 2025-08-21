@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYC | Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
+body {
+  background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background: #1a237e;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+header.shrink { padding: 5px 20px; background: #0f1b60; }
+header .logo img { height: 50px; }
+
+nav { margin-left: auto; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
+nav ul li a:hover, nav ul li a.active { color: #ffca28; }
+
+.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; }
+@media(max-width:768px){
+  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:200px; padding:20px; }
+  nav ul.active { display: flex; }
+  .menu-toggle { display: block; }
+}
+
+/* Body Message */
+.body-message {
+  margin:120px 20px 20px 20px;
+  padding:20px;
+  background: rgba(0,0,0,0.6);
+  border-left:6px solid #004080;
+  border-radius:10px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  text-align:center;
+}
+
+/* Marquee Slides */
+.popup-slideshow {
+  position: relative;
+  overflow: hidden;
+  background: rgba(0,0,0,0.6);
+  border-left:6px solid #004080;
+  border-radius:8px;
+  margin:20px auto;
+  width:90%;
+  height:60px;
+  display:flex;
+  align-items:center;
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+.popup-slide {
+  position:absolute;
+  white-space:nowrap;
+  padding:0 20px;
+  font-size:16px;
+  display:flex;
+  align-items:center;
+  left:100%;
+}
+.popup-slide i { margin-right:8px; color:#ffca28; }
+
+/* Event Cards */
+.event-cards {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:20px;
+  gap:20px;
+}
+.event-card {
+  background: rgba(0,0,0,0.6);
+  border-radius:10px;
+  padding:20px;
+  width:280px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow:0 6px 14px rgba(0,0,0,0.4);
+}
+.event-card i { font-size:2rem; color:#ffca28; margin-bottom:10px; }
+
+/* Footer */
+footer {
+  background:#1a237e;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  margin-top:auto;
+}
+footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
+footer a:hover { color:#fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="cyc.png" alt="CYC Logo"></div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  </nav>
+</header>
+
+<div class="body-message" id="bodyMessage">
+  <h3><i class="fas fa-info-circle"></i> Welcome to Concern Youth of Enmokanwo</h3>
+  <p>Check back regularly for latest announcements and events.</p>
+</div>
+
+<div class="popup-slideshow" id="popupSlideshow"></div>
+
+<div class="event-cards" id="eventCards"></div>
+
+<footer>
+  <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/share/1BxeVjF9F9/"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('active');
+}
+
+// Event data
+const events = [
+  { icon:"fas fa-broom", msg:"Community Cleanup: Sep 15, 2025 at Main Park. Join us for the annual cleanup!" },
+  { icon:"fas fa-users", msg:"Youth Meeting: Oct 1, 2025 at Community Hall. Monthly youth gathering for planning activities." },
+  { icon:"fas fa-gift", msg:"Fundraising Gala: Nov 20, 2025 at Town Center. Support our projects with music and food." },
+  { icon:"fas fa-hand-holding-heart", msg:"Charity Drive: Dec 5, 2025 at Town Hall. Help the less fortunate in our community." }
+];
+
+// Marquee
+const slideshowContainer = document.getElementById("popupSlideshow");
+events.forEach(ev=>{
+  const slide = document.createElement("div");
+  slide.className="popup-slide";
+  slide.innerHTML=`<i class="${ev.icon}"></i><p>${ev.msg}</p>`;
+  slideshowContainer.appendChild(slide);
+});
+
+let speed=0.1;
+function moveSlides(){
+  const slides=document.querySelectorAll(".popup-slide");
+  let positions=[];
+  slides.forEach((s,i)=>positions[i]=100+i*100);
+  function animate(){
+    slides.forEach((s,i)=>{
+      positions[i]-=speed;
+      if(positions[i]<-100) positions[i]=(slides.length-1)*100;
+      s.style.left=positions[i]+"%";
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+moveSlides();
+
+// Event cards
+const cardsContainer = document.getElementById("eventCards");
+events.forEach(ev=>{
+  const card = document.createElement("div");
+  card.className="event-card";
+  card.innerHTML=`<i class="${ev.icon}"></i><h3>${ev.msg.split(":")[0]}</h3><p>${ev.msg.split(":")[1]}</p>`;
+  cardsContainer.appendChild(card);
+});
+
+// Body messages rotation
+const bodyMessages=[
+  "Welcome to Concern Youth of Enmokanwo! Stay tuned for news.",
+  "Join our next community cleanup and make a difference!",
+  "Check out upcoming events and RSVP online.",
+  "Empowering the youth of Enmokanwo together."
+];
+let bodyIndex=0;
+const bodyMsgEl=document.getElementById("bodyMessage");
+setInterval(()=>{
+  bodyIndex=(bodyIndex+1)%bodyMessages.length;
+  bodyMsgEl.querySelector("p").textContent=bodyMessages[bodyIndex];
+},5000);
+</script>
+</body>
+</html>

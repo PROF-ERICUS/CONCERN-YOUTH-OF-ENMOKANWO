@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYC | Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Open Sans',sans-serif; }
+
+body {
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #1a237e;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+header.shrink { padding: 5px 20px; background: #0f1b60; }
+header .logo img { height:50px; }
+
+nav { margin-left:auto; }
+nav ul { list-style:none; display:flex; gap:20px; }
+nav ul li a { color:#fff; text-decoration:none; font-weight:600; transition:0.3s; }
+nav ul li a:hover, nav ul li a.active { color:#ffca28; }
+
+.menu-toggle { display:none; font-size:1.5rem; cursor:pointer; color:#fff; }
+@media(max-width:768px){
+  nav ul { display:none; flex-direction:column; background:#1a237e; position:absolute; top:60px; right:0; width:200px; padding:20px; }
+  nav ul.active { display:flex; }
+  .menu-toggle { display:block; }
+}
+
+/* Main Content */
+main { margin-top:100px; padding:20px; flex:1; }
+
+/* Gallery Images */
+.gallery-section { text-align:center; margin-bottom:50px; }
+.gallery-section h2 { margin-bottom:20px; color:#1a237e; }
+.gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
+.gallery-grid img { width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s; }
+.gallery-grid img:hover { transform: scale(1.05); }
+
+/* Group Videos */
+.video-section { text-align:center; margin-bottom:50px; }
+.video-section h2 { margin-bottom:20px; color:#1a237e; }
+.video-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px; }
+.video-grid iframe { width:100%; height:200px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+
+/* Footer */
+footer {
+  background:#1a237e;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  margin-top:auto;
+}
+footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
+footer a:hover { color:#fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="cyc.png" alt="CYC Logo"></div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  </nav>
+</header>
+
+<main>
+  <!-- Gallery Images Section -->
+  <section class="gallery-section">
+    <h2>Gallery Images</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=600&q=80" alt="Event 1">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Event 2">
+      <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&w=600&q=80" alt="Event 3">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&w=600&q=80" alt="Event 4">
+    </div>
+  </section>
+
+  <!-- Group Videos Section -->
+  <section class="video-section">
+    <h2>Group Videos</h2>
+    <div class="video-grid">
+      <!-- Example YouTube videos, replace URLs with your own -->
+      <iframe src="https://www.youtube.com/embed/TqxkdDUuU38" frameborder="0" allowfullscreen></iframe>
+       <iframe src="https://www.youtube.com/embed/P80EBQmZy5M" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/8zRw__xUVm0" frameborder="0" allowfullscreen></iframe>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Concern Youth of Enmokanwo. All rights reserved.</p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/share/1BxeVjF9F9/"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+function toggleMenu() {
+  const nav = document.getElementById('nav-links');
+  nav.classList.toggle('active');
+}
+window.addEventListener("scroll", function() {
+  const header = document.querySelector("header");
+  if(window.scrollY>50) { header.classList.add("shrink"); }
+  else { header.classList.remove("shrink"); }
+});
+</script>
+
+</body>
+</html>
