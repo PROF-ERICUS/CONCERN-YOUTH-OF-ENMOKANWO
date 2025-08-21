@@ -30,38 +30,84 @@ header .logo img { height: 50px; }
 
 /* Navigation */
 nav ul { list-style: none; display: flex; gap: 20px; }
-nav ul li a { color: #fff; text-decoration: none; font-weight: 600; }
+nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
 nav ul li a:hover, nav ul li a.active { color: #ffca28; }
 
 .menu-toggle { display: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
 
-/* Responsive */
+/* Responsive Nav */
 @media(max-width:768px){
-  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 60px; right: 0; width: 200px; padding: 10px; }
+  nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top: 60px; right: 0; width: 220px; padding: 15px; border-radius: 0 0 8px 8px; }
   nav ul.active { display: flex; }
   .menu-toggle { display: block; }
 }
 
-/* Hero/About Section */
-.hero, .about-section {
-  margin-top:90px;
-  padding:100px 20px;
+/* About Section */
+.about-section {
+  margin-top:100px;
+  padding:80px 20px;
+  background: #e8eaf6;
+  color: #333;
   text-align:center;
-  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1650&q=80') no-repeat center center;
-  background-size: cover;
-  color: #fff;
+}
+.about-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #1a237e;
+}
+.about-section p {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
 }
 
-.about-section { background: #e8eaf6; color: #333; padding:80px 20px; text-align:left; }
-.about-section h2 { text-align:center; margin-bottom: 30px; }
-.about-grid { display: flex; flex-wrap: wrap; justify-content:center; gap: 20px; margin-top:20px; }
-.about-card { background: #fff; padding:20px; border-left:6px solid #004080; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2); flex:1 1 300px; text-align:center; }
-.about-card i { font-size: 30px; color:#004080; margin-bottom:10px; }
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  gap: 25px;
+}
+.about-card {
+  background: #fff;
+  padding:25px;
+  border-left:6px solid #004080;
+  border-radius:10px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
+  flex:1 1 300px;
+  text-align:center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow:0 6px 12px rgba(0,0,0,0.2);
+}
+.about-card i {
+  font-size: 40px;
+  color:#004080;
+  margin-bottom:15px;
+}
+.about-card h3 {
+  margin-bottom:10px;
+  color:#1a237e;
+}
 
 /* Footer */
-footer { background: #1a237e; color:#fff; text-align:center; padding:20px; margin-top:40px; }
-footer a { color:#ffca28; margin-left:0.5rem; }
+footer {
+  background: #1a237e;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+}
+footer a { color:#ffca28; margin: 0 10px; font-size: 1.2rem; }
 footer a:hover { color:#fff; }
+
+/* Responsive */
+@media(max-width:600px){
+  .about-section h2 { font-size: 1.8rem; }
+  .about-section p { font-size: 1rem; }
+  .about-card { padding:20px; }
+}
 </style>
 </head>
 <body>
@@ -85,7 +131,7 @@ footer a:hover { color:#fff; }
 <!-- About Section -->
 <section class="about-section">
   <h2>About Us</h2>
-  <p>The <strong>Concern Youth of Enmokanwo</strong> is a vibrant community association formed to unite and empower the young people of Enmokanwo. Since 2018, we have been committed to fostering growth, promoting education, and building a strong sense of togetherness.</p>
+  <p>The <strong>Concern Youth of Enmokanwo (CYC)</strong> is a vibrant association uniting and empowering the young people of Enmokanwo. Since 2018, we have been committed to fostering growth, promoting education, and building a strong sense of togetherness.</p>
   
   <div class="about-grid">
     <div class="about-card">
@@ -97,6 +143,11 @@ footer a:hover { color:#fff; }
       <i class="fas fa-lightbulb"></i>
       <h3>Our Vision</h3>
       <p>To see Enmokanwo become a united and thriving community, where the youth are empowered, engaged, and actively shaping a brighter future for all.</p>
+    </div>
+    <div class="about-card">
+      <i class="fas fa-hands-helping"></i>
+      <h3>Our Values</h3>
+      <p>We believe in unity, transparency, accountability, respect, and commitment to serving the community with passion and integrity.</p>
     </div>
   </div>
 </section>
