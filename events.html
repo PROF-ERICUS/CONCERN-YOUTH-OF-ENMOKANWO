@@ -33,12 +33,10 @@ header {
 }
 header.shrink { padding: 5px 20px; background: #0f1b60; }
 header .logo img { height: 50px; }
-
 nav { margin-left: auto; }
 nav ul { list-style: none; display: flex; gap: 20px; }
 nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.3s; }
 nav ul li a:hover, nav ul li a.active { color: #ffca28; }
-
 .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: #fff; }
 @media(max-width:768px){
   nav ul { display: none; flex-direction: column; background: #1a237e; position: absolute; top:60px; right:0; width:200px; padding:20px; }
@@ -66,19 +64,24 @@ nav ul li a:hover, nav ul li a.active { color: #ffca28; }
   border-radius:8px;
   margin:20px auto;
   width:90%;
-  height:60px;
+  max-width: 800px;
+  min-height: 60px;
   display:flex;
   align-items:center;
+  padding:0 10px;
   box-shadow:0 4px 8px rgba(0,0,0,0.2);
 }
+
 .popup-slide {
-  position:absolute;
-  white-space:nowrap;
-  padding:0 20px;
+  flex: 0 0 100%;
+  white-space: normal;
+  padding:10px 20px;
   font-size:16px;
   display:flex;
   align-items:center;
-  left:100%;
+  gap:10px;
+  transform: translateX(100%);
+  transition: transform 0.5s linear;
 }
 .popup-slide i { margin-right:8px; color:#ffca28; }
 
@@ -115,6 +118,11 @@ footer {
 }
 footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
 footer a:hover { color:#fff; }
+
+/* Small screens adjustments */
+@media (max-width:768px){
+  .popup-slide { font-size: 14px; padding: 8px 10px; }
+}
 </style>
 </head>
 <body>
@@ -167,7 +175,7 @@ const events = [
   { icon:"fas fa-hand-holding-heart", msg:"Charity Drive: Dec 5, 2025 at Town Hall. Help the less fortunate in our community." }
 ];
 
-// Marquee
+// Build slides
 const slideshowContainer = document.getElementById("popupSlideshow");
 events.forEach(ev=>{
   const slide = document.createElement("div");
@@ -176,22 +184,19 @@ events.forEach(ev=>{
   slideshowContainer.appendChild(slide);
 });
 
-let speed=0.1;
-function moveSlides(){
-  const slides=document.querySelectorAll(".popup-slide");
-  let positions=[];
-  slides.forEach((s,i)=>positions[i]=100+i*100);
-  function animate(){
-    slides.forEach((s,i)=>{
-      positions[i]-=speed;
-      if(positions[i]<-100) positions[i]=(slides.length-1)*100;
-      s.style.left=positions[i]+"%";
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
+// Responsive sliding
+let slides = document.querySelectorAll(".popup-slide");
+let current = 0;
+function showSlide(index){
+  slides.forEach((s,i)=>{
+    s.style.transform = `translateX(${(i - index) * 100}%)`;
+  });
 }
-moveSlides();
+setInterval(()=>{
+  current = (current + 1) % slides.length;
+  showSlide(current);
+},4000);
+showSlide(current);
 
 // Event cards
 const cardsContainer = document.getElementById("eventCards");
