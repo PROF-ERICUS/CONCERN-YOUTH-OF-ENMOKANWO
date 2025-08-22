@@ -29,18 +29,50 @@ body { display:flex; flex-direction:column; min-height:100vh; background:#f9fafb
 .executives-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
 
 /* Executive Card */
-.executive-card { background:#fff; border-radius:10px; padding:20px; box-shadow:0 4px 8px rgba(0,0,0,0.1); text-align:center; }
-.executive-card img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px; }
+.executive-card {
+  background:#fff;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
+  text-align:center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.executive-card:hover {
+  transform: translateY(-5px);
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+.executive-card img {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:15px;
+}
 .executive-card h3 { margin-bottom:5px; color:#1a237e; }
 .executive-card p { font-size:14px; color:#555; margin-bottom:10px; }
-.executive-card .social-links a { margin:0 5px; color:#1a237e; transition:0.3s; }
+.executive-card .social-links a {
+  margin:0 5px;
+  color:#1a237e;
+  transition:0.3s;
+}
 .executive-card .social-links a:hover { color:#ffca28; }
 
 /* Footer */
-footer { background:#1a237e; color:#fff; text-align:center; padding:20px; }
-footer a { color:#ffca28; margin-left:0.5rem; transition:0.3s; }
-footer a:hover { color:#fff; }
-
+footer {
+  background:#1a237e;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+footer a {
+  color:#ffca28;
+  margin:0 8px;
+  transition:0.3s;
+}
+footer a:hover {
+  color:#fff;
+  transform: scale(1.1);
+}
 </style>
 </head>
 <body>
@@ -60,7 +92,7 @@ footer a:hover { color:#fff; }
       </div>
     </div>
     <div class="executive-card">
-      <img src="leader2.jpg" alt="Leader 2">
+      <img src="images/oter.jpg" alt="Leader 2">
       <h3>OTERGAR</h3>
       <p>Vice President</p>
       <div class="social-links">
@@ -68,19 +100,19 @@ footer a:hover { color:#fff; }
         <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-        <div class="executive-card">
+    <div class="executive-card">
       <img src="images/eric.jpg" alt="Leader 3">
       <h3>ERIC ANDOH</h3>
-      <p>Public Relation Officer</p>
+      <p>Public Relations Officer</p>
       <div class="social-links">
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-        <div class="executive-card">
+    <div class="executive-card">
       <img src="images/aki.jpg" alt="Leader 4">
       <h3>FRANCIS AKI COBBINAH</h3>
-      <p>Financial Treasure</p>
+      <p>Financial Treasurer</p>
       <div class="social-links">
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-linkedin"></i></a>
